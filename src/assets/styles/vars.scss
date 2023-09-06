@@ -1,0 +1,62 @@
+//<====Breakpoints=====>
+$pcBig: 1480px; //большие мониторы
+$pc: 1280px; //пк и ноутбуки
+$tablet: 991.98px; //планшеты
+$mobile: 767.96px; //телефоны
+$mobileMiddle: 677px; //телефоны
+$mobileSmall: 479.98px; //телефоны
+
+$containerWidth: $tablet;
+
+//<=====Font========>
+$fontFamily: "Inter", sans-serif;
+$fontSize: 16px;
+
+//<=====Colors========>
+$black: #000;
+$red: #efdcdc;
+$green: #72fc05;
+$grey: #d9d9d9;
+$lightBlue: #4c20e1;
+$lightBlack: rgba($black, 0.6);
+$white: #fff;
+$yellow: #ffc93d;
+$blue: #2e1d67;
+$purple: #58189d;
+
+// <====Media queries====>
+@mixin pcBig {
+    @media (max-width: $pcBig) {
+        @content;
+    }
+}
+
+@mixin pc {
+    @media (max-width: $pc) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: $mobile) {
+        @content;
+    }
+}
+
+@mixin mobileMiddle {
+    @media (max-width: $mobileMiddle) {
+        @content;
+    }
+}
+
+@mixin mobileSmall {
+    @media (max-width: $mobileSmall) {
+        @content;
+    }
+}

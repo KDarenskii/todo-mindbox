@@ -1,0 +1,23 @@
+@import "../../../assets/styles/vars.scss";
+
+.button {
+    color: $grey;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+    padding: 4px;
+    font-weight: 500;
+    &--active {
+        color: $black;
+    }
+    &--active.button--danger {
+        border-color: $red;
+    }
+    &--active.button--warning {
+        border-color: yellow;
+    }
+    &--active.button--success {
+        border-color: $green;
+    }
+}

@@ -1,0 +1,16 @@
+@import "../../../assets/styles/vars.scss";
+
+.input {
+    color: $black;
+    font-size: 25px;
+    background-color: $white;
+    padding: 15px 20px;
+    border: 1px solid $grey;
+    transition: border-color 0.2s ease;
+    &::placeholder {
+        color: $grey;
+    }
+    &:focus {
+        border-color: $green;
+    }
+}

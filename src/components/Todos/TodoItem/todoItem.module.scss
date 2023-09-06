@@ -1,0 +1,13 @@
+@import "../../../assets/styles/vars.scss";
+
+.item {
+    background-color: $white;
+    border: 1px solid $grey;
+    border-top: 0;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    &:hover {
+        background-color: rgb(237 255 251);
+    }
+}
