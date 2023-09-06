@@ -7,13 +7,19 @@ import styles from "./todosList.module.scss";
 
 interface Props {
     todos: ITodo[];
+    toggleTodo: (id: string) => void;
 }
 
-const TodosList: FC<Props> = ({ todos }) => {
+const TodosList: FC<Props> = ({ todos, toggleTodo }) => {
     return (
         <ul className={styles.list}>
             {todos.map(({ id, isCompleted, title }) => (
-                <TodoItem id={id} isCompleted={isCompleted} title={title} key={id} />
+                <TodoItem
+                    isCompleted={isCompleted}
+                    title={title}
+                    onClick={() => toggleTodo(id)}
+                    key={id}
+                />
             ))}
         </ul>
     );

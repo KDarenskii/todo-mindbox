@@ -1,10 +1,18 @@
 import { FormEvent, useState } from "react";
 
-const useTodoForm = (defaultValue = "") => {
+const useTodoForm = (onSubmit: (title: string) => void, defaultValue = "") => {
     const [todoValue, setTodoValue] = useState(defaultValue);
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+
+        const value = todoValue.trim();
+
+        if (value.length < 1) return;
+
+        onSubmit(value);
+
+        setTodoValue("");
     };
 
     return { todoValue, setTodoValue, handleSubmit };

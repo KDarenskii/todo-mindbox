@@ -9,14 +9,14 @@ import {
 import styles from "./todoItem.module.scss";
 
 interface Props {
-    id: string;
     title: string;
     isCompleted: boolean;
+    onClick: () => void;
 }
 
-const TodoItem: FC<Props> = ({ id, isCompleted, title }) => {
+const TodoItem: FC<Props> = ({ isCompleted, title, onClick }) => {
     return (
-        <li className={styles.item}>
+        <li className={styles.item} onClick={onClick}>
             <CheckboxControl>
                 <Checkbox isChecked={isCompleted} />
                 <CheckboxText isChecked={isCompleted}>{title}</CheckboxText>

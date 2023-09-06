@@ -5,10 +5,12 @@ import { Input } from "components/ui/Input";
 import styles from "./todoForm.module.scss";
 import useTodoForm from "./useTodoForm";
 
-interface Props {}
+interface Props {
+    onSubmit: (title: string) => void;
+}
 
-const TodoForm: FC<Props> = () => {
-    const { todoValue, setTodoValue, handleSubmit } = useTodoForm();
+const TodoForm: FC<Props> = ({ onSubmit }) => {
+    const { todoValue, setTodoValue, handleSubmit } = useTodoForm(onSubmit);
 
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
