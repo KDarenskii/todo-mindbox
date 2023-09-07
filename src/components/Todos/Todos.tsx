@@ -5,7 +5,7 @@ import { TodoForm } from "components/forms/TodoForm";
 import { TodosControls } from "./TodosControls";
 import { TodosList } from "./TodosList";
 import styles from "./todos.module.scss";
-import useTodos from "./useTodos";
+import useTodos from "./useTodos/useTodos";
 
 const Todos: FC = () => {
     const {

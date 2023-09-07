@@ -1,24 +1,12 @@
 import { useMemo, useState } from "react";
 
-import { nanoid } from "nanoid";
+import nanoid from "nanoid";
 
 import { ITodo } from "types/todo.interface";
 import { TODO_FILTER } from "types/todoFilter.enum";
 
-const todos = [
-    { id: "1", isCompleted: true, title: "Todo 1" },
-    { id: "2", isCompleted: true, title: "Todo 2" },
-    { id: "3", isCompleted: false, title: "Todo 3" },
-    { id: "4", isCompleted: true, title: "Todo 4" },
-    { id: "5", isCompleted: true, title: "Todo 5" },
-    { id: "6", isCompleted: false, title: "Todo 6" },
-    { id: "7", isCompleted: true, title: "Todo 7" },
-    { id: "8", isCompleted: true, title: "Todo 8" },
-    { id: "9", isCompleted: false, title: "Todo 9" },
-];
-
 const useTodos = () => {
-    const [todosList, setTodosList] = useState<ITodo[]>(todos);
+    const [todosList, setTodosList] = useState<ITodo[]>([]);
     const [activeFilter, setActiveFilter] = useState<TODO_FILTER>(
         TODO_FILTER.all,
     );
@@ -34,7 +22,15 @@ const useTodos = () => {
     }, [activeFilter, todosList]);
 
     const handleAddTodo = (title: string) => {
-        const newTodo: ITodo = { title, id: nanoid(), isCompleted: false };
+        const isExisting = todosList.find((todo) => todo.title === title);
+
+        if (isExisting) return;
+
+        const newTodo: ITodo = {
+            title,
+            id: nanoid.nanoid(),
+            isCompleted: false,
+        };
         setTodosList((todos) => [newTodo, ...todos]);
     };
 
