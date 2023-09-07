@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/todo-mindbox/static/css/main.3a03443f.css",
+    "main.js": "/todo-mindbox/static/js/main.0b02c459.js",
+    "index.html": "/todo-mindbox/index.html",
+    "static/media/check.svg": "/todo-mindbox/static/media/check.ceb11fe6fec42bb456ff.svg",
+    "main.3a03443f.css.map": "/todo-mindbox/static/css/main.3a03443f.css.map",
+    "main.0b02c459.js.map": "/todo-mindbox/static/js/main.0b02c459.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3a03443f.css",
+    "static/js/main.0b02c459.js"
+  ]
+}
