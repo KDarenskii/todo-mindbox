@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 
-import nanoid from "nanoid";
+import { nanoid } from "nanoid";
 
 import { ITodo } from "types/todo.interface";
 import { TODO_FILTER } from "types/todoFilter.enum";
@@ -10,6 +10,7 @@ const useTodos = () => {
     const [activeFilter, setActiveFilter] = useState<TODO_FILTER>(
         TODO_FILTER.all,
     );
+    const [error, setError] = useState<string | null>(null);
 
     const filteredTodos = useMemo(() => {
         if (activeFilter === TODO_FILTER.completed) {
@@ -24,11 +25,14 @@ const useTodos = () => {
     const handleAddTodo = (title: string) => {
         const isExisting = todosList.find((todo) => todo.title === title);
 
-        if (isExisting) return;
+        if (isExisting) {
+            setError("Todo is already existing");
+            return;
+        }
 
         const newTodo: ITodo = {
             title,
-            id: nanoid.nanoid(),
+            id: nanoid(),
             isCompleted: false,
         };
         setTodosList((todos) => [newTodo, ...todos]);
@@ -53,6 +57,10 @@ const useTodos = () => {
         setActiveFilter(filter);
     };
 
+    const handleResetError = () => {
+        setError(null);
+    };
+
     return {
         todosList: filteredTodos,
         handleAddTodo,
@@ -60,6 +68,8 @@ const useTodos = () => {
         handleToggleStatus,
         activeFilter,
         handleChangeFilter,
+        error,
+        handleResetError,
     };
 };
 

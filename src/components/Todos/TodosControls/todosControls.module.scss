@@ -9,6 +9,9 @@
     padding: 10px 20px;
     border: 1px solid $grey;
     border-top: 0;
+    @include mobileMiddle {
+        flex-direction: column;
+    }
 }
 
 .counter {

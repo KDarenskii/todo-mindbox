@@ -17,9 +17,11 @@ interface Props {
 const TodoItem: FC<Props> = ({ isCompleted, title, onClick }) => {
     return (
         <li className={styles.item} onClick={onClick}>
-            <CheckboxControl>
+            <CheckboxControl className={styles.control}>
                 <Checkbox isChecked={isCompleted} />
-                <CheckboxText isChecked={isCompleted}>{title}</CheckboxText>
+                <CheckboxText className={styles.text} isChecked={isCompleted}>
+                    {title}
+                </CheckboxText>
             </CheckboxControl>
         </li>
     );

@@ -11,3 +11,16 @@
         background-color: rgb(237 255 251);
     }
 }
+
+.control {
+    gap: 14px;
+}
+
+.text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    @include mobile {
+        font-size: 16px;
+    }
+}

@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
 
-const useTodoForm = (onSubmit: (title: string) => void, defaultValue = "") => {
+const useTodoForm = (onSubmit?: (title: string) => void, defaultValue = "") => {
     const [todoValue, setTodoValue] = useState(defaultValue);
 
     const handleSubmit = (event?: FormEvent<HTMLFormElement>) => {
@@ -10,7 +10,7 @@ const useTodoForm = (onSubmit: (title: string) => void, defaultValue = "") => {
 
         if (value.length < 1) return;
 
-        onSubmit(value);
+        onSubmit && onSubmit(value);
 
         setTodoValue("");
     };

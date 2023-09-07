@@ -1,6 +1,7 @@
 import { FC } from "react";
 
 import { TodoForm } from "components/forms/TodoForm";
+import { ALERT, Alert } from "components/ui/Alert";
 
 import { TodosControls } from "./TodosControls";
 import { TodosList } from "./TodosList";
@@ -15,12 +16,19 @@ const Todos: FC = () => {
         handleDeleteTodos,
         handleAddTodo,
         handleToggleStatus,
+        error,
+        handleResetError,
     } = useTodos();
 
     return (
         <section>
             <h1 className={styles.title}>Todos</h1>
-            <TodoForm onSubmit={handleAddTodo} />
+            {error && (
+                <Alert className={styles.alert} type={ALERT.ERROR}>
+                    {error}
+                </Alert>
+            )}
+            <TodoForm onSubmit={handleAddTodo} resetError={handleResetError} />
             <TodosList todos={todosList} toggleTodo={handleToggleStatus} />
             <TodosControls
                 activeFilter={activeFilter}

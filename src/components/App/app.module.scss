@@ -1,3 +1,8 @@
+@import "../../assets/styles/vars.scss";
+
 .main {
     padding: 40px 0;
+    @include mobile {
+        padding: 20px 0;
+    }
 }

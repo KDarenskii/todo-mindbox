@@ -16,14 +16,14 @@ beforeEach(() => {
 });
 
 test("should render when mounted", () => {
-    render(<TodoForm onSubmit={() => {}} />);
+    render(<TodoForm />);
 
     expect(selectors.form()).toBeInTheDocument();
     expect(selectors.todoInput()).toBeInTheDocument();
 });
 
 test("should display default todo value", () => {
-    render(<TodoForm onSubmit={() => {}} />);
+    render(<TodoForm />);
 
     expect(selectors.todoInput()).toBeInTheDocument();
     expect(selectors.todoInput()).toHaveValue("");
@@ -32,7 +32,7 @@ test("should display default todo value", () => {
 test("should display fields with value when user types", async () => {
     const mockedTodo = "mocked todo";
 
-    render(<TodoForm onSubmit={() => {}} />);
+    render(<TodoForm />);
 
     const todo = selectors.todoInput();
 
