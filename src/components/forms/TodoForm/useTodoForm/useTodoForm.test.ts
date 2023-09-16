@@ -1,5 +1,3 @@
-import React, { FormEvent } from "react";
-
 import { act, renderHook } from "@testing-library/react";
 
 import useTodoForm from "./useTodoForm";

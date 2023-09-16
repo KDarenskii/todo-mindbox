@@ -23,6 +23,8 @@ const TodoForm: FC<Props> = ({ onSubmit, resetError }) => {
                 value={todoValue}
                 onChange={(event) => setTodoValue(event.target.value)}
                 placeholder="What needs to be done?"
+                autoComplete="none"
+                autoFocus
             />
         </form>
     );
